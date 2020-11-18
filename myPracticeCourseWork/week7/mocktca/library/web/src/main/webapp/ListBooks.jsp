@@ -78,21 +78,27 @@
 			errorMessage = "problem creating  Book " + e.getMessage();
 		}
 	} else if ("clearSearch".equals(action)) {
-		// TODO
-		// *********************************
-        // Add clear search code here
-        // *********************************
+                // TODO
+                // *********************************
+                searchTitle = null;
+                searchAuthor = null;
+                searchIsbn = null;
+                // *********************************
 	}
 	
 	List<Book> bookList =new ArrayList<Book>();
 	
 	if ("searchBooks".equals(action)) {
-        // TODO
-		// *********************************
-        // Add search code here
-        // *********************************
+                // TODO
+                // *********************************
+                Book bookTemplate = new Book();
+                bookTemplate.setTitle(searchTitle);
+                bookTemplate.setAuthor(searchAuthor);
+                bookTemplate.setIsbn(searchIsbn);
+                bookList = serviceFacade.retrieveMatchingBooks(bookTemplate);
+                // *********************************
 	} else {
-		bookList = serviceFacade.retrieveAllBooks();
+                bookList = serviceFacade.retrieveAllBooks();
 	}
  
 %>
